@@ -7,10 +7,23 @@ import { CommitsProps as Props } from "./Commits.types";
 import Styles from "./Commits.styles";
 
 const Commits: React.FC<Props> = (props) => {
-  const { data } = useFetchCommits();
-  console.log(data);
+  const { data: commits, isLoading } = useFetchCommits();
 
-  return <Styles className="Commits">Commits</Styles>;
+  return (
+    <Styles className="Commits">
+      <h1>Commits</h1>
+
+      {isLoading ? <p>Loading...</p> : null}
+
+      <ul>
+        {commits?.map((commitInfo) => {
+          const { commit } = commitInfo;
+
+          return <li>{commit.message}</li>;
+        })}
+      </ul>
+    </Styles>
+  );
 };
 
 Commits.defaultProps = {};
