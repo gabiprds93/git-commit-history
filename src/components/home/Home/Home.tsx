@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+// Components
+import Commits from "../Commits/Commits";
 // Types, Styles
 import { HomeProps as Props } from "./Home.types";
 import Styles from "./Home.styles";
 
 const Home: React.FC<Props> = (props) => {
-  return <Styles className="Home">Home</Styles>;
+  const queryClientRef = useRef<QueryClient>();
+
+  if (!queryClientRef.current) {
+    queryClientRef.current = new QueryClient({
+      defaultOptions: {
+        queries: {
+          refetchOnWindowFocus: true,
+        },
+      },
+    });
+  }
+
+  return (
+    <QueryClientProvider client={queryClientRef.current}>
+      <Styles className="Home">
+        <Commits />
+      </Styles>
+    </QueryClientProvider>
+  );
 };
 
 Home.defaultProps = {};
