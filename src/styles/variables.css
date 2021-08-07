@@ -1,0 +1,8 @@
+/* CSS variables */
+
+:root {
+  --palette-white: #ffffff;
+  --palette-text: #24292e;
+  --palette-background: #f6f8fa;
+  --palette-border: #ebedef;
+}
