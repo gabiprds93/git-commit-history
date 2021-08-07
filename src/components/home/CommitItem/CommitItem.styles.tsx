@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// Types
 import { CommitItemStyledProps as Props } from "./CommitItem.types";
 
 const CommitItemStyled = styled.li<Props>`
@@ -31,7 +32,7 @@ const CommitItemStyled = styled.li<Props>`
       margin-bottom: 0.4rem;
     }
 
-    &__user {
+    &__info {
       font-size: 1.2rem;
     }
   }

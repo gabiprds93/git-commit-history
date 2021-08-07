@@ -1,4 +1,4 @@
-import React from "react";
+import dayjs from "dayjs";
 
 // Types, Styles
 import { CommitItemProps as Props } from "./CommitItem.types";
@@ -9,6 +9,8 @@ const CommitItem: React.FC<Props> = (props) => {
 
   const { commit, committer, html_url } = item;
   const { login, html_url: htmlCommiter } = committer;
+  const { date } = commit.committer;
+  const dateFormat = dayjs(date).format("MMM DD, YYYY");
 
   return (
     <Styles className="CommitItem">
@@ -21,14 +23,13 @@ const CommitItem: React.FC<Props> = (props) => {
         {commit.message}
       </a>
 
-      <a
-        href={htmlCommiter}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="CommitItem__user"
-      >
-        {login}
-      </a>
+      <div className="CommitItem__info">
+        <a href={htmlCommiter} target="_blank" rel="noopener noreferrer">
+          {login}
+        </a>
+
+        <span>{` committed ${dateFormat}`}</span>
+      </div>
     </Styles>
   );
 };
