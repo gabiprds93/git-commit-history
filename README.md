@@ -1,3 +1,28 @@
+# How to install and run the project
+
+- First, you need to copy the URL to clone the project.
+
+![image](./src/assets/images/screenshot1.png)
+
+- Second, in a folder on your computer, you have to open the command console and run the following command and paste the URL you copied:
+
+  `git clone [url]`
+
+- Then open the project in your favorite IDE and the command console in that root.
+
+- The next step is to install the dependencies with the following command:
+  
+   `npm install`
+
+- Finally, to get the project up you have to run the following command:
+
+  `npm start`
+
+
+![image](./src/assets/images/screenshot2.png)
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
