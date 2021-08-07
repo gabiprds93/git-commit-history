@@ -21,6 +21,8 @@
 
 ![image](./src/assets/images/screenshot2.png)
 
+[Link to the hosted project](https://gabiprds93.github.io/git-commit-history/)
+
 ---
 
 # Getting Started with Create React App
