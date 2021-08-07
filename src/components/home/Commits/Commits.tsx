@@ -1,5 +1,7 @@
 import React from "react";
 
+// Components
+import CommitItem from "../CommitItem/CommitItem";
 //Services
 import { useFetchCommits } from "../../../services/commits/commits.service.hooks";
 // Types, Styles
@@ -16,31 +18,8 @@ const Commits: React.FC<Props> = (props) => {
       {isLoading ? <p>Loading...</p> : null}
 
       <ul>
-        {commits?.map((commitInfo) => {
-          const { commit, committer, html_url } = commitInfo;
-          const { login, html_url: htmlCommiter } = committer;
-
-          return (
-            <li className="Commits__item">
-              <a
-                href={html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="Commits__item__message"
-              >
-                {commit.message}
-              </a>
-
-              <a
-                href={htmlCommiter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="Commits__item__user"
-              >
-                {login}
-              </a>
-            </li>
-          );
+        {commits?.map((commit) => {
+          return <CommitItem key={commit.sha} item={commit} />;
         })}
       </ul>
     </Styles>
